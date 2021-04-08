@@ -46,6 +46,7 @@ namespace Gewinnspiel.Forms
             serializerSpiele = new XmlSerializer(gewinnspielListe.GetType());
             serializerTeiln = new XmlSerializer(teilnehmerListe.GetType());
             deserialisierenTeil();
+            deserialisierenSpiel();
         }
 
         #region Methoden

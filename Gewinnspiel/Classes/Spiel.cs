@@ -25,6 +25,8 @@ namespace Gewinnspiel.Classes
         //Konstruktor
         public Spiel()
         {
+            SpielID = autonum;
+            autonum++;
         }
 
         public Spiel(string bezeichnung, string preis, string gewinn, double wert, List<Teilnehmer> listeTeilnehmer, bool ausgelost, string bildpfad)
@@ -59,5 +61,10 @@ namespace Gewinnspiel.Classes
         public static int Autonum { get; set; }
 
         public static int Anzahl { get; set; }
+
+        public override string ToString()
+        {
+            return spielID + ";" + bezeichnung + ";" + gewinn + ";" + wert + ";" + ausgelost;
+        }
     }
 }

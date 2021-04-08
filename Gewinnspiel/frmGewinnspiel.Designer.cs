@@ -50,6 +50,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(27, 277);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(203, 133);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
             // 
@@ -206,20 +207,19 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAbbrechen;
         private System.Windows.Forms.Button btnSpeichern;
-        private System.Windows.Forms.TextBox txtBezeichnung;
-        private System.Windows.Forms.TextBox txtGewinn;
-        private System.Windows.Forms.TextBox txtBildpfad;
-        private System.Windows.Forms.TextBox txtWert;
-        private System.Windows.Forms.TextBox txtGewinnspielID;
-        private System.Windows.Forms.CheckBox cbAusglost;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.TextBox txtBezeichnung;
+        internal System.Windows.Forms.TextBox txtGewinn;
+        internal System.Windows.Forms.TextBox txtBildpfad;
+        internal System.Windows.Forms.TextBox txtWert;
+        internal System.Windows.Forms.TextBox txtGewinnspielID;
+        internal System.Windows.Forms.CheckBox cbAusglost;
+        internal System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -26,14 +26,16 @@ namespace Gewinnspiel.Forms
         {
             lvGewinnspiele.FullRowSelect = true;
             lvTeilnehmer.FullRowSelect = true;
+            rbAktiv.Checked = true;
+            einlesenGewinnspiele();
         }
 
-        #region Methoden
+        #region Methoden       
 
         private void einlesenGewinnspiele()
         {
             lvGewinnspiele.Items.Clear();
-            for (int i =0; i<frmLogin.frmLog.gewinnspielListe.Count; i++)
+            for (int i = 0; i < frmLogin.frmLog.gewinnspielListe.Count; i++)
             {
                 if (rbAktiv.Checked)
                 {
@@ -70,10 +72,43 @@ namespace Gewinnspiel.Forms
             lvGewinnspiele.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
+        private void hinzufuegenGewinnspiel()
+        {
+            frmGewinnspiel frmGew = new frmGewinnspiel();
+            frmGew.Text = "Gewinnspiel hinzufügen";
+            frmGew.txtGewinnspielID.Text = Spiel.autonum.ToString();
+            frmGew.ShowDialog();
+        }
+        private void bearbeitenGewinnspiel()
+        {
+            if (lvGewinnspiele.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Bitte wählen Sie ein Gewinnspiel aus!");
+                return;
+            }
+            frmGewinnspiel frmGew = new frmGewinnspiel();
+            frmGew.Text = "Gewinnspiel hinzufügen";
+            lvItem = lvGewinnspiele.SelectedItems[0];
+            frmGew.txtGewinnspielID.Text = lvItem.SubItems[1].Text;
+            frmGew.txtBezeichnung.Text = lvItem.SubItems[2].Text;
+            frmGew.txtGewinn.Text = lvItem.SubItems[3].Text;
+            frmGew.txtWert.Text = lvItem.SubItems[4].Text;
+            frmGew.cbAusglost.Checked = Convert.ToBoolean(lvItem.SubItems[5].Text);
+            frmGew.pictureBox1.Image = Image.FromFile(lvItem.SubItems[6].Text);
+            frmGew.ShowDialog();
+        }
+
+
         #endregion
 
+        private void gewinnspielHinzufügenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hinzufuegenGewinnspiel();
+        }
 
-
- 
+        private void gewinnspielBearbeitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bearbeitenGewinnspiel();
+        }
     }
-}
+    } 

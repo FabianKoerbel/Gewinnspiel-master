@@ -21,6 +21,7 @@ namespace Gewinnspiel
 
 
         #region Variablen
+        string bildpfad;
         #endregion
 
         #region Methoden
@@ -28,7 +29,11 @@ namespace Gewinnspiel
 
         private void frmGewinnspiel_Load(object sender, EventArgs e)
         {
-
+            if (this.Text.Equals("Gewinnspiel hinzufügen"))
+            {
+                bildpfad = Application.StartupPath + "\\images\\default.jpg";
+                pictureBox1.Image = Image.FromFile(bildpfad);
+            }
         }
 
         private void btnAbbrechen_Click(object sender, EventArgs e)
@@ -69,6 +74,7 @@ namespace Gewinnspiel
 
             }
             frmLogin.frmLog.serialisierenSpiel();
+            this.Close();
         }
     }
 }
