@@ -94,8 +94,9 @@ namespace Gewinnspiel.Forms
             frmGew.txtGewinn.Text = lvItem.SubItems[3].Text;
             frmGew.txtWert.Text = lvItem.SubItems[4].Text;
             frmGew.cbAusglost.Checked = Convert.ToBoolean(lvItem.SubItems[5].Text);
-            frmGew.pictureBox1.Image = Image.FromFile(lvItem.SubItems[6].Text);
+            //frmGew.pictureBox1.Image = Image.FromFile(lvItem.SubItems[6].Text);
             frmGew.ShowDialog();
+            einlesenGewinnspiele();
         }
 
 

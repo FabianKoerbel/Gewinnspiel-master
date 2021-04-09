@@ -65,16 +65,47 @@ namespace Gewinnspiel
                 s.Bezeichnung = txtBezeichnung.Text;
                 s.Gewinn = txtGewinn.Text;
                 s.Wert = wert;
-                s.Ausgelost = false;
+                s.Ausgelost = cbAusglost.Checked;
                 s.Bildpfad = txtBildpfad.Text;
                 frmLogin.frmLog.gewinnspielListe.Add(s);
             }
             else // Gewinnspiel bearbeiten
             {
-
+                foreach (Spiel s in frmLogin.frmLog.gewinnspielListe)
+                {
+                    if (s.SpielID == Convert.ToInt32(txtGewinnspielID.Text))
+                    {
+                        s.Bezeichnung = txtBezeichnung.Text;
+                        s.Gewinn = txtGewinn.Text;
+                        s.Wert = wert;
+                        s.Ausgelost = cbAusglost.Checked;
+                        s.Bildpfad = bildpfad;
+                    }
+                }
             }
             frmLogin.frmLog.serialisierenSpiel();
             this.Close();
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            try
+            {
+                ofd.Filter = "Image FIles (*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png;|All Files (*.*)| *.*";
+                ofd.InitialDirectory = "D://Fotos";
+                if(ofd.ShowDialog()==DialogResult.OK)
+                {
+                    pictureBox1.Image = new Bitmap(ofd.FileName);
+                    bildpfad = ofd.FileName;
+                    txtBildpfad.Text = ofd.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

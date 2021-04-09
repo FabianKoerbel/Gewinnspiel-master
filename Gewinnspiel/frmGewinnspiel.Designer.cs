@@ -53,6 +53,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // btnAbbrechen
             // 
@@ -97,6 +98,7 @@
             this.txtBildpfad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBildpfad.Location = new System.Drawing.Point(272, 222);
             this.txtBildpfad.Name = "txtBildpfad";
+            this.txtBildpfad.ReadOnly = true;
             this.txtBildpfad.Size = new System.Drawing.Size(300, 22);
             this.txtBildpfad.TabIndex = 24;
             // 
